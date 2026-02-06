@@ -1,6 +1,5 @@
 package com.javanauta.usuario.business.dto;
 
-import com.javanauta.usuario.infrastructure.entity.Usuario;
 import lombok.*;
 
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 
-public class UsuarioDTO extends Usuario {
+public class UsuarioDTO {
     private String nome;
     private String email;
     private String senha;

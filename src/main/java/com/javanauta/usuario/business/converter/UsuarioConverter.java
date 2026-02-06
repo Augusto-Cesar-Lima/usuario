@@ -26,7 +26,15 @@ public class UsuarioConverter {
     }
 
     public List<Endereco> paraListaEndereco(List<EnderecoDTO> enderecoDTOS) {
-        return enderecoDTOS.stream().map(this::paraEndereco).toList();
+        // FIX: Check if list is null
+        if (enderecoDTOS == null) {
+            return new ArrayList<>();
+        }
+        List<Endereco> enderecos = new ArrayList<>();
+        for (EnderecoDTO enderecoDTO : enderecoDTOS) {
+            enderecos.add(paraEndereco(enderecoDTO));
+        }
+        return enderecos;
     }
 
     public Endereco paraEndereco(EnderecoDTO enderecoDTO) {
@@ -41,6 +49,9 @@ public class UsuarioConverter {
     }
 
     public List<Telefone> paraListaTelefone(List<TelefoneDTO> telefoneDTOS) {
+        if (telefoneDTOS == null) {
+            return new ArrayList<>();
+        }
         return telefoneDTOS.stream().map(this::paraTelefone).toList();
     }
 
